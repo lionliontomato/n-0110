@@ -1,0 +1,164 @@
+:root {
+  color-scheme: light;
+  --nav-height: 78px;
+  --ink: #405969;
+  --ink-soft: #70818b;
+  --nav-glass: rgba(250, 253, 254, .92);
+  --nav-line: rgba(111, 135, 149, .18);
+  --nav-shadow: 0 8px 26px rgba(64, 89, 105, .12);
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; }
+body {
+  overflow: hidden;
+  color: var(--ink);
+  background: #eaf4f9;
+  font-family: 'Zen Maru Gothic', 'Noto Serif TC', system-ui, sans-serif;
+}
+button, a { font: inherit; }
+
+.app-header {
+  position: fixed;
+  z-index: 50;
+  inset: 0 0 auto;
+  min-height: calc(var(--nav-height) + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
+  background: var(--nav-glass);
+  border-bottom: 1px solid rgba(255,255,255,.9);
+  box-shadow: var(--nav-shadow);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+.header-inner {
+  width: min(1240px, 100%);
+  min-height: var(--nav-height);
+  margin: 0 auto;
+  padding: 10px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-fish {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #e5f1f5, #f8fbfc);
+  box-shadow: 0 5px 15px rgba(64,89,105,.10);
+  font-size: 23px;
+}
+.brand-copy { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-copy strong {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  letter-spacing: .05em;
+}
+.brand-copy small {
+  margin-top: 4px;
+  color: #7896a5;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid #d9e7eb;
+  border-radius: 16px;
+  background: rgba(229, 239, 242, .88);
+}
+.switch-button {
+  min-height: 42px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 11px;
+  color: #718b99;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+.switch-button:hover { color: #405f70; }
+.switch-button.is-active {
+  color: #405f70;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 3px 12px rgba(64,89,105,.12);
+}
+.switch-button:focus-visible, .open-original:focus-visible, .brand:focus-visible {
+  outline: 3px solid #8ab9d1;
+  outline-offset: 3px;
+}
+.open-original {
+  justify-self: end;
+  color: #668494;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.open-original:hover { color: #405969; text-decoration: underline; }
+
+.workspace {
+  position: fixed;
+  inset: calc(var(--nav-height) + env(safe-area-inset-top)) 0 0;
+  background: #eaf4f9;
+}
+.frame-panel { width: 100%; height: 100%; }
+.frame-panel[hidden] { display: none !important; }
+.frame-panel iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #eaf4f9;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 760px) {
+  :root { --nav-height: 96px; }
+  .header-inner {
+    min-height: var(--nav-height);
+    padding: 8px 12px 9px;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 37px 43px;
+    gap: 5px 8px;
+  }
+  .brand { gap: 7px; grid-column: 1; grid-row: 1; }
+  .brand-fish { width: 34px; height: 34px; border-radius: 12px; font-size: 19px; }
+  .brand-copy strong { font-size: 14px; }
+  .brand-copy small { font-size: 8px; letter-spacing: .1em; }
+  .open-original { font-size: 11px; grid-column: 2; grid-row: 1; }
+  .switcher {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    width: min(100%, 380px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3px;
+    border-radius: 13px;
+  }
+  .switch-button { min-height: 36px; padding: 0 8px; font-size: 13px; }
+}
+
+@media (max-width: 360px) {
+  .brand-copy small { display: none; }
+  .open-original { font-size: 10px; }
+}

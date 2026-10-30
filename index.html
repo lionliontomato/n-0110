@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eaf4f9">
+  <meta name="description" content="年年の小天地｜整合年年の歌單與年年の存鑽存歌，保留兩個原網站的原始版面與獨立資料來源。">
+  <!-- 使用原本「年年の歌單」的小魚圖示，作為整合網站的瀏覽器分頁圖示 -->
+  <link rel="icon" type="image/svg+xml" href="https://lionliontomato.github.io/NIAN/assets/fish-icon.svg?v=20261030-nian4">
+  <link rel="shortcut icon" href="https://lionliontomato.github.io/NIAN/assets/fish-icon.svg?v=20261030-nian4">
+  <title>年年の小天地</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=3">
+  <script defer src="./app.js?v=3"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#songs" aria-label="年年の小天地首頁">
+        <span class="brand-fish" aria-hidden="true">🐟</span>
+        <span class="brand-copy"><strong>年年の小天地</strong><small>NIAN'S LITTLE WORLD</small></span>
+      </a>
+
+      <nav class="switcher" role="tablist" aria-label="切換網站功能">
+        <button class="switch-button is-active" id="songs-tab" type="button" role="tab" aria-selected="true" aria-controls="songs-panel" data-view="songs">
+          <span aria-hidden="true">♫</span> 年年の歌單
+        </button>
+        <button class="switch-button" id="treasure-tab" type="button" role="tab" aria-selected="false" aria-controls="treasure-panel" data-view="treasure">
+          <span aria-hidden="true">✧</span> 存鑽存歌
+        </button>
+      </nav>
+
+      <a class="open-original" id="open-original" href="https://lionliontomato.github.io/NIAN/" target="_blank" rel="noopener noreferrer">在原網站開啟 ↗</a>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="frame-panel is-active" id="songs-panel" role="tabpanel" aria-labelledby="songs-tab">
+      <iframe
+        id="songs-frame"
+        title="年年の歌單原始網站"
+        data-src="https://lionliontomato.github.io/NIAN/"
+        allow="clipboard-write"
+        referrerpolicy="strict-origin-when-cross-origin"
+        loading="eager"></iframe>
+    </section>
+
+    <section class="frame-panel" id="treasure-panel" role="tabpanel" aria-labelledby="treasure-tab" hidden>
+      <iframe
+        id="treasure-frame"
+        title="年年の存鑽存歌原始網站"
+        data-src="https://lionliontomato.github.io/nm/"
+        allow="clipboard-write"
+        referrerpolicy="strict-origin-when-cross-origin"
+        loading="lazy"></iframe>
+    </section>
+  </main>
+
+  <noscript>請開啟瀏覽器 JavaScript，才能切換歌單與存鑽存歌功能。</noscript>
+</body>
+</html>
